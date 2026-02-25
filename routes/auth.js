@@ -4,7 +4,9 @@ const { register, login, getMe, updateProfile, changePassword } = require('../co
 const { protect } = require('../middleware/auth');
 
 router.post('/register', register);
-router.post('/login', login);
+router.post("/login", (req, res) => {
+  res.json({ message: "Login route working" });
+});
 router.get('/me', protect, getMe);
 router.put('/profile', protect, updateProfile);
 router.put('/password', protect, changePassword);
